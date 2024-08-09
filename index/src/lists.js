@@ -9,22 +9,18 @@ const Lists = () => {
     { Name: "Bombhu", Age: 19, Address: "Chandol", id: 2 },
     { Name: "Jenisha", Age: 20, Address: "Kumarigal", id: 3 },
   ]);
+  //We are using this function here, because we do not want to delete the data as a whole so we need to use set function, so that if refereshed, it goes back to initial list
+  const handleDelete = (id) => {
+    const newList = list.filter((list) => list.id !== id); //It adds the elemnts that do not match with the id to newList
+    setList(newList); //It updates the list on html
+  };
+
   return (
     <div className="lists">
-      {/* its dynamic value do ofc it should be inside paranthesis 
-    We are using map method of JS so that we can iterate through each value in the array*/}
-      {/* {list.map((lists) => (
-        //key is essential because it is what react uses to keep track of each item in the dom
-        <div className="blogs" key={lists.id}>
-          <h1>{lists.Name}</h1>
-          <p>Age: {lists.Age}</p>
-          <p>Address: {lists.Address}</p>
-        </div>
-      ))} */}
-      <Props list={list} title="Students" />
+      <Props list={list} title="Students" handleDelete={handleDelete} />
       {/* Reusing components */}
       <Props
-        list={list.filter((lists) => lists.Age === 19)}
+        list={list.filter((lists) => lists.Age < 20)}
         title="Students under 20"
       />
     </div>
