@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Props from "./props";
 
 const Lists = () => {
@@ -14,7 +14,12 @@ const Lists = () => {
     const newList = list.filter((list) => list.id !== id); //It adds the elemnts that do not match with the id to newList
     setList(newList); //It updates the list on html
   };
-
+  const [name, setName] = useState("kismis");
+  useEffect(() => {
+    //useEffect hook runs on every render of the component
+    console.log("useEffect in use.");
+    console.log(name);
+  }, [name]);
   return (
     <div className="lists">
       <Props list={list} title="Students" handleDelete={handleDelete} />
@@ -23,6 +28,8 @@ const Lists = () => {
         list={list.filter((lists) => lists.Age < 20)}
         title="Students under 20"
       />
+      <p>{name}</p>
+      <button onClick={() => setName("bombhu")}>Change</button>
     </div>
   );
 };
