@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Gupter:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+* {
+  font-family: "dancing script";
+}
+
+.home h1{
+  font-size: xx-large;
+  color: darkolivegreen;
+  background-color: #ffebcd;
+}
